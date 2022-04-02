@@ -1,5 +1,5 @@
 let pSBCr = null
-const lighten=(p,c0,c1,l)=>{    
+const pSBC=(p,c0,c1,l)=>{
     let r,g,b,P,f,t,h,i=parseInt,m=Math.round,a=typeof(c1)=="string"
     if(typeof(p)!="number"||p<-1||p>1||typeof(c0)!="string"||(c0[0]!='r'&&c0[0]!='#')||(c1&&!a))return null
     if(!pSBCr)pSBCr=(d)=>{
@@ -23,4 +23,6 @@ const lighten=(p,c0,c1,l)=>{
     if(h)return"rgb"+(f?"a(":"(")+r+","+g+","+b+(f?","+m(a*1000)/1000:"")+")"
     else return"#"+(4294967296+r*16777216+g*65536+b*256+(f?m(a*255):0)).toString(16).slice(1,f?undefined:-2)
 }
-export default lighten
+export default function lighten(p, c0) {
+    return pSBC(p, c0, false, true)
+}
