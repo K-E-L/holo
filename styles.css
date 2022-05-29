@@ -10,11 +10,18 @@ html, body {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
+}
+
+.grid {
+    padding: 50px 0px 50px 0px;
+    display: grid;
+    gap: 100px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .holo {
@@ -23,7 +30,7 @@ html, body {
     vertical-align: middle;
     line-height: 150px;
     position: relative;
-    width: 200px;
+    width: 150px;
     height: 150px;
     margin: auto;
     background-color: rgb(62, 133, 247);

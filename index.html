@@ -7,16 +7,45 @@
         <title>Holo Project</title>
         <link rel="stylesheet" href="styles.css">
         <script src="face-api.min.js"></script>
-        <script type="module" src="script.js"></script>
+        <script defer src="dist/main.js"></script>
         <link rel="shortcut icon" href="#" />
     </head>
     <body>
         <video id="video" autoplay muted></video>
         <p id="loading">Loading...</p>
-        <div class="container">
-            <div data-asdf="something" class="holo"></div>
-            <div class="holo" id="second"></div>
+        <div class="grid">
+            <div class="holo"></div>
+            <div class="holo"></div>
+            <div class="holo"></div>
+            <div class="holo"></div>
+            <div class="holo"></div>
+            <div class="holo"></div>
+            <div class="holo"></div>
+            <div class="holo"></div>
             <div class="holo"></div>
         </div>
+        <div>
+          <input type="range" id="gradient_to_light" name="gradient_to_light" min="0" max=".4" value=".2" step=".01">
+          <label for="gradient_to_light">Gradient relative to the light</label>
+        </div>        
+        <div>
+          <input type="range" id="shadow_to_face" name="shadow_to_face" min="0" max=".3" value=".08" step=".01">
+          <label for="shadow_to_face">Shadow relative to your face</label>
+        </div>        
+        <div>
+          <input type="range" id="shadow_to_light" name="shadow_to_light" min="0" max=".3" value=".08" step=".01">
+          <label for="shadow_to_light">Shadow relative to the light</label>
+        </div>        
+        <div>
+          <input type="range" id="light_x" name="light_x" min="0" max="1200" value="600" step="1">
+          <label for="light_x">Light source X</label>
+        </div>        
+        <div>
+          <input type="range" id="light_y" name="light_y" min="0" max="600" value="300" step="1">
+          <label for="light_y">Light source Y</label>
+        </div>        
+        <div>
+          <button id="reset" type="button">Reset Defaults</button>
+        </div>        
     </body>
 </html>
