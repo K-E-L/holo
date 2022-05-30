@@ -9,7 +9,7 @@ export default function run() {
     let loaded = false
     const video = document.querySelector('#video')
     const displaySize = { width: window.innerWidth, height: window.innerHeight }
-    const settings = new Settings()
+    let settings = new Settings()
 
     video.height = window.innerHeight
     video.width = window.innerWidth
@@ -23,47 +23,65 @@ export default function run() {
     }
     startVideo()
 
-    function hookUpSettingsToInputElements() {
-        const gradient_to_light = document.querySelector('#gradient_to_light')
-        const shadow_to_face = document.querySelector('#shadow_to_face')
-        const shadow_to_light = document.querySelector('#shadow_to_light')
-        const light_x = document.querySelector('#light_x')
-        const light_y = document.querySelector('#light_y')
-        const reset = document.querySelector('#reset')
+    function initializeTitleColor() {
+        const title_color = document.querySelector('#title_color')
+        const elements = document.querySelectorAll('.title')
+        const description = document.querySelectorAll('.description')[0]
+        const description2 = document.querySelectorAll('.description')[2]
+
+        const starting_color = '#F56226'
         
-        gradient_to_light.addEventListener('input', function (e) {
-            settings.gradient_to_light = Number(e.target.value)
+        title_color.value = starting_color
+        elements.forEach((element) => {
+            element.style.backgroundColor = starting_color
+        })
+        description.style.backgroundColor = starting_color
+        description2.style.backgroundColor = starting_color
+        
+        title_color.addEventListener('input', function (e) {
+            elements.forEach((element) => {
+                element.style.backgroundColor = e.target.value
+            })
+            description.style.backgroundColor = e.target.value
+            description2.style.backgroundColor = e.target.value
+        })
+    }
+    initializeTitleColor()
+
+    function hookUpSettingToInputElement(setting_name) {
+        const element = document.querySelector(`#${setting_name}`)
+        element.addEventListener('input', function (e) {
+            settings[setting_name] = Number(e.target.value)
         });
-        shadow_to_face.addEventListener('input', function (e) {
-            settings.shadow_to_face = Number(e.target.value)
-        });
-        shadow_to_light.addEventListener('input', function (e) {
-            settings.shadow_to_light = Number(e.target.value)
-        });
-        light_x.addEventListener('input', function (e) {
-            settings.light_x = Number(e.target.value)
-        });
-        light_y.addEventListener('input', function (e) {
-            settings.light_y = Number(e.target.value)
-        });
+        element.value = settings[setting_name]
+    }
+
+    function hookUpSettingsToInputElements() {
+        const setting_names = ['gradient_to_light', 'shadow_to_face', 'shadow_to_light', 'light_x', 'light_y', 'lighten_amp']
+        setting_names.forEach(setting_name => hookUpSettingToInputElement(setting_name))
+
+        const reset = document.querySelector('#reset')        
         reset.addEventListener('click', function (e) {
-            settings.resetToDefaults()
+            settings = new Settings()
             gradient_to_light.value = settings.gradient_to_light
             shadow_to_face.value = settings.shadow_to_face
             shadow_to_light.value = settings.shadow_to_light
             light_x.value = settings.light_x
             light_y.value = settings.light_y
+            lighten_amp.value = settings.lighten_amp
         });
     }
     hookUpSettingsToInputElements();
 
     async function loadModels() {
-        await faceapi.nets.tinyFaceDetector.load('/models/tiny_face_detector')
-        await faceapi.nets.faceLandmark68Net.load('/models/face_landmark_68')
-
-        const load = document.getElementById('loading')
-        load.innerHTML = 'loaded successfully!'
-
+        try {
+            await faceapi.nets.tinyFaceDetector.load('/models/tiny_face_detector')
+            await faceapi.nets.faceLandmark68Net.load('/models/face_landmark_68')
+            console.log('models loaded successfully!')
+        }
+        catch(e) {
+            console.error('models failed to load')
+        }
         return true
     }
 

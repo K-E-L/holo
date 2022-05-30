@@ -14,7 +14,7 @@ export default class Gradient {
 
         this.background_color = window.getComputedStyle(this.element).backgroundColor
 
-        this.lightened_background_color = lighten(this.getLighten(.7), this.background_color)
+        this.lightened_background_color = lighten(this.getLighten(this.settings.lighten_amp), this.background_color)
     }
 
     getLighten(amp) {

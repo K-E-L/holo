@@ -2,42 +2,165 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 html, body {
-  margin: 0;
-  height: 100%;
+    margin: 0;
+    height: 100%;
 }
 
-.container {
-    display: grid;
-    justify-content: center;
+label {
+    padding: 0px 0px 0px 20px;
+}
+
+.title-block {
+    width: 100%;
+}
+
+.title-primary {
+    padding: 80px 100px 30px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
     align-items: center;
-    min-height: 100vh;
-    background: white;
+    justify-content: center;    
 }
 
-.grid {
-    padding: 50px 0px 50px 0px;
-    display: grid;
-    gap: 100px;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.holo {
+.title {
     text-align: center;
     color: #e8e8e8;
     vertical-align: middle;
     line-height: 150px;
-    position: relative;
+    font-size: 70px;
+    letter-spacing: -0.04em;
     width: 150px;
+    font-weight: bold;
     height: 150px;
-    margin: auto;
-    background-color: rgb(62, 133, 247);
     box-shadow: 5px 5px 15px -2px black;
 }
 
+.title-secondary {
+    padding: 20px 0px 20px 0px;
+    color: 	#606060;
+    text-align: center;
+    font-size: 25px;
+    margin: auto;
+}
+
+.settings {
+    margin: 50px auto 50px auto;
+    padding: 20px;
+    width: 40%;
+    height: 100%;
+    background-color: #707070;
+    color: white;
+}
+
+.settings-title {
+    padding: 10px 0px 10px 0px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.setting {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.setting-reset {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+
+#reset {
+    border: 2px solid black;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-repeat: no-repeat;
+    background-color: black;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    padding: 6px;
+    margin-top: 10px;
+}
+
+.description-code {
+    margin: 10px 0px 10px 0px;
+    background-color: white;
+    color: black;
+}
+
+.descriptions {
+    display: grid;
+    gap: 30px;
+    width: 50%;
+    margin: 50px auto 50px auto;    
+}
+
+.description {
+    padding: 15px;
+    background-color: #707070;
+    color: white;
+    line-height: 1.7;
+}
+
+code {
+    display:inline-block;
+    margin: 15px;
+    font-family: monospace;    
+    color: black;
+}
+
+#github-link:link {
+    display:inline-block;
+    margin: 15px;
+    font-family: monospace;    
+}
+
+#github-link:visited {
+    font-family: monospace;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.flex-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+    .settings {
+        width: 100%;
+        margin: 30px;
+        padding: 20px;
+    }
+
+    .descriptions {
+        width: 100%;
+        margin: 30px;
+    }
+
+    .title-primary {
+        padding: 50px 100px 30px 100px;
+    }
+}
+
 #video {
-  position: absolute;
-  visibility: hidden;
+    position: fixed;
+    visibility: hidden;
+    width: 100%;
 }

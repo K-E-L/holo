@@ -1,51 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Holo Project</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="face-api.min.js"></script>
-        <script defer src="dist/main.js"></script>
-        <link rel="shortcut icon" href="#" />
-    </head>
-    <body>
-        <video id="video" autoplay muted></video>
-        <p id="loading">Loading...</p>
-        <div class="grid">
-            <div class="holo"></div>
-            <div class="holo"></div>
-            <div class="holo"></div>
-            <div class="holo"></div>
-            <div class="holo"></div>
-            <div class="holo"></div>
-            <div class="holo"></div>
-            <div class="holo"></div>
-            <div class="holo"></div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Holo Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="face-api.min.js"></script>
+    <script defer src="dist/main.js"></script>
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body class="body">
+    <video id="video" autoplay muted></video>
+    <div class="flex-body">
+      <div class="title-block">
+        <div class="title-primary">
+          <div class="holo title">h</div>
+          <div class="holo title">o</div>
+          <div class="holo title">l</div>
+          <div class="holo title">o</div>
         </div>
-        <div>
-          <input type="range" id="gradient_to_light" name="gradient_to_light" min="0" max=".4" value=".2" step=".01">
+        <div class="title-secondary">Move your head or device to experience!</div>
+      </div>
+      <div class="holo settings">
+        <div class="settings-title">Settings</div>
+        <div class="setting">
+          <input type="color" id='title_color'>
+          <label for="gradient_to_light">Color</label>
+        </div>
+        <div class="setting">
+          <input type="range" id="lighten_amp" name="lighten_amp" min="0" max="1" step=".01">
+          <label for="lighten_amp">Gradient brightness</label>
+        </div>        
+        <div class="setting">
+          <input type="range" id="gradient_to_light" name="gradient_to_light" min="0" max=".4" step=".01">
           <label for="gradient_to_light">Gradient relative to the light</label>
-        </div>        
-        <div>
-          <input type="range" id="shadow_to_face" name="shadow_to_face" min="0" max=".3" value=".08" step=".01">
-          <label for="shadow_to_face">Shadow relative to your face</label>
-        </div>        
-        <div>
-          <input type="range" id="shadow_to_light" name="shadow_to_light" min="0" max=".3" value=".08" step=".01">
-          <label for="shadow_to_light">Shadow relative to the light</label>
-        </div>        
-        <div>
-          <input type="range" id="light_x" name="light_x" min="0" max="1200" value="600" step="1">
+        </div>
+        <div class="setting">
+          <input type="range" id="light_x" name="light_x" min="0" max="1200" step="1">
           <label for="light_x">Light source X</label>
         </div>        
-        <div>
-          <input type="range" id="light_y" name="light_y" min="0" max="600" value="300" step="1">
+        <div class="setting">
+          <input type="range" id="light_y" name="light_y" min="0" max="600" step="1">
           <label for="light_y">Light source Y</label>
         </div>        
-        <div>
-          <button id="reset" type="button">Reset Defaults</button>
+        <div class="setting">
+          <input type="range" id="shadow_to_face" name="shadow_to_face" min="0" max=".3" step=".01">
+          <label for="shadow_to_face">Shadow relative to your face</label>
         </div>        
-    </body>
+        <div class="setting">
+          <input type="range" id="shadow_to_light" name="shadow_to_light" min="0" max=".3" step=".01">
+          <label for="shadow_to_light">Shadow relative to the light</label>
+        </div>        
+        <div class="setting-reset">
+          <input id="reset" type="submit" value="Reset Defaults" class="button"/>
+        </div>
+      </div>
+      <div class="descriptions">
+        <div class="holo description">
+          <div>Install via NPM:</div>
+          <div class="description-code">
+            <code>npm install holo</code>
+          </div>
+        </div>
+        <div class="holo description">
+          <div>Fork on GitHub:</div>
+          <div class="description-code">
+            <a id="github-link" href="https://github.com/K-E-L/holo" target="_blank">https://github.com/K-E-L/holo</a>
+          </div>
+        </div>
+        <div class="holo description">
+          Introducing Holo, a next-gen facial recognition method of styling front-end elements! Using the <a href="https://github.com/justadudewhohacks/face-api.js/" target="_blank">face-api</a> library, I obtain coordinates of the user's face, a virtual light source, and the element's center to calculate its radial-gradient and shadow. These two attributes were chosen for their malleability as sharp movements / animations based off of facial recognition looks inaccurate and jerky at this point in time. Hopefully in the future these will improve as facial recognition becomes more precise and devices more powerful, being able to run multiple Holo elements without draining battery and limiting performance. I hope you enjoy the Holo project and help push the limits of modern day computing!
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
