@@ -1,9 +1,6 @@
-import {parse, stringify, toJSON, fromJSON} from 'flatted';
 import Holo from '../holo/holo.js'
 import Light from '../light/light.js'
 import Settings from '../settings/settings.js'
-import axios from 'axios'
-import * as tiny from '../jsons/tiny.json'
 
 export default function run() {
     let loaded = false
