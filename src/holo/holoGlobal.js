@@ -9,6 +9,7 @@ class HoloGlobal {
         this.video = this.initializeVideo()        
         this.settings = new Settings()
         this.displaySize = { width: window.innerWidth, height: window.innerHeight }
+        this.interval_started = false
 
         this.start()
     }
@@ -51,27 +52,40 @@ class HoloGlobal {
         return true
     }
 
+    startInterval() {
+        if (this.interval_started) return
+        
+        setInterval(async () => {
+            const detections = await faceapi.detectAllFaces(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
+            const resizedDetections = faceapi.resizeResults(detections, this.displaySize)
+
+            // face outside of screen height and width
+            if (resizedDetections[0] === undefined) {
+                return
+            }
+
+            const light = new Light(this.settings.light_x, this.settings.light_y)
+
+            const elements = document.querySelectorAll('.holo')
+            elements.forEach((element) => {
+                const holo = new Holo(element, resizedDetections, light, this.settings)
+                element.style.backgroundImage = holo.getGradient()
+                element.style.boxShadow = holo.getShadow()
+            })
+        }, 100)
+        this.interval_started = true
+    }
+
     start() {
         this.video.setAttribute("playsinline", true);
+        this.video.addEventListener('play', () => {
+            this.startInterval()
+        })
         document.addEventListener('mousedown', () => {
-            setInterval(async () => {
-                const detections = await faceapi.detectAllFaces(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
-                const resizedDetections = faceapi.resizeResults(detections, this.displaySize)
-
-                // face outside of screen height and width
-                if (resizedDetections[0] === undefined) {
-                    return
-                }
-
-                const light = new Light(this.settings.light_x, this.settings.light_y)
-
-                const elements = document.querySelectorAll('.holo')
-                elements.forEach((element) => {
-                    const holo = new Holo(element, resizedDetections, light, this.settings)
-                    element.style.backgroundImage = holo.getGradient()
-                    element.style.boxShadow = holo.getShadow()
-                })
-            }, 100)
+            this.startInterval()
+        })
+        document.addEventListener('scroll', () => {
+            this.startInterval()
         })
     }
 }
