@@ -38,7 +38,7 @@ function hookUpSettingsToInputElements() {
 
     const reset = document.querySelector('#reset')
     reset.addEventListener('click', function (e) {
-        holo.global.settings = new Settings()
+        holo.global.settings.reset()
         gradient_to_light.value = holo.global.settings.gradient_to_light
         shadow_to_face.value = holo.global.settings.shadow_to_face
         shadow_to_light.value = holo.global.settings.shadow_to_light
