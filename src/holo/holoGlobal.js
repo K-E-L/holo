@@ -62,6 +62,8 @@ class HoloGlobal {
                 }
 
                 const light = new Light(this.settings.light_x, this.settings.light_y)
+
+                console.log(resizedDetections)
                 
                 const elements = document.querySelectorAll('.holo')
                 elements.forEach((element) => {
