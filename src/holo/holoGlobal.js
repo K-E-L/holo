@@ -77,6 +77,8 @@ class HoloGlobal {
                 })
             }, 100)
         })
+        this.video.muted = true
+        this.video.play()
     }
 }
 export const global = new HoloGlobal()
