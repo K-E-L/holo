@@ -158,8 +158,3 @@ a {
     }
 }
 
-#video {
-    position: fixed;
-    visibility: hidden;
-    width: 100%;
-}
