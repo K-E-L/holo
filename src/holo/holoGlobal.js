@@ -30,6 +30,7 @@ class HoloGlobal {
         video.width = window.innerWidth
         video.style.position = 'fixed'
         video.style.width = '100%'
+        video.style.visibility = 'hidden'
         
         return video
     }
