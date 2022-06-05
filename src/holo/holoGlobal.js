@@ -51,7 +51,7 @@ class HoloGlobal {
     }
 
     start() {
-        console.log('here')
+        console.log('here', this.video)
         this.video.addEventListener('play', () => {
             console.log('yup')
             setInterval(async () => {
