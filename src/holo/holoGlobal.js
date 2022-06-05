@@ -23,8 +23,9 @@ class HoloGlobal {
 
     createVideoElement() {
         const video = document.createElement('video');
+        video.muted = true        
+        video.playsinline = true        
         video.autoplay = true
-        video.muted = true
         video.height = window.innerHeight
         video.width = window.innerWidth
         video.style.position = 'fixed'
@@ -76,7 +77,6 @@ class HoloGlobal {
                 })
             }, 100)
         })
-        this.video.play()
     }
 }
 export const global = new HoloGlobal()
