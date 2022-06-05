@@ -59,7 +59,7 @@ class HoloGlobal {
                 const detections = await faceapi.detectAllFaces(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
                 const resizedDetections = faceapi.resizeResults(detections, this.displaySize)
 
-                console.log(resizedDetections)
+                console.log(detections, resizedDetections)
 
                 // face outside of screen height and width
                 if (resizedDetections[0] === undefined) {
