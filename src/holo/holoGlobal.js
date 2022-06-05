@@ -53,9 +53,9 @@ class HoloGlobal {
 
     start() {
         document.body.addEventListener('click', () => {
-            console.log('yup')
+            console.log('yup', this.video, this.displaySize)
             setInterval(async () => {
-                console.log('sup')
+                console.log('sup', faceapi)
                 const detections = await faceapi.detectAllFaces(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
                 const resizedDetections = faceapi.resizeResults(detections, this.displaySize)
 
