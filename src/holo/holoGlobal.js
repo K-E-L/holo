@@ -52,8 +52,7 @@ class HoloGlobal {
     }
 
     start() {
-        console.log('here', this.video)
-        this.video.addEventListener('play', () => {
+        document.body.addEventListener('click', () => {
             console.log('yup')
             setInterval(async () => {
                 console.log('sup')
@@ -77,8 +76,6 @@ class HoloGlobal {
                 })
             }, 100)
         })
-        this.video.muted = true
-        this.video.play()
     }
 }
 export const global = new HoloGlobal()
