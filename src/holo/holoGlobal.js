@@ -51,6 +51,7 @@ class HoloGlobal {
     }
 
     start() {
+        this.video.setAttribute("playsinline", true);
         document.body.addEventListener('click', () => {
             console.log('yup', this.video, this.displaySize)
             setInterval(async () => {
