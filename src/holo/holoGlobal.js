@@ -53,7 +53,7 @@ class HoloGlobal {
 
     start() {
         this.video.setAttribute("playsinline", true);
-        this.video.addEventListener('play', () => {
+        document.addEventListener('mousedown', () => {
             setInterval(async () => {
                 const detections = await faceapi.detectAllFaces(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
                 const resizedDetections = faceapi.resizeResults(detections, this.displaySize)
