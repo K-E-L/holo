@@ -51,6 +51,7 @@ class HoloGlobal {
     }
 
     start() {
+        console.log('here')
         this.video.addEventListener('play', () => {
             setInterval(async () => {
                 const detections = await faceapi.detectAllFaces(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
@@ -63,8 +64,6 @@ class HoloGlobal {
 
                 const light = new Light(this.settings.light_x, this.settings.light_y)
 
-                console.log(resizedDetections)
-                
                 const elements = document.querySelectorAll('.holo')
                 elements.forEach((element) => {
                     const holo = new Holo(element, resizedDetections, light, this.settings)
