@@ -35,7 +35,7 @@ class HoloGlobal {
     }
     
     startVideo() {
-        navigator.mediaDevices.getUserMedia({video: false, audio: true}).then((stream) => {this.video.srcObject = stream}, (err) => console.error(err))
+        navigator.mediaDevices.getUserMedia({video: true, audio: true}).then((stream) => {this.video.srcObject = stream}, (err) => console.error(err))
     }
 
     async loadModels() {
