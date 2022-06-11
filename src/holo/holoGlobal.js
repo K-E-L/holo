@@ -14,7 +14,6 @@ class HoloGlobal {
             this.settings.interval_value = 50
         }
         this.interval_value = this.settings.interval_value
-        console.log(this.interval_value)
 
         this.start()
     }
@@ -42,7 +41,7 @@ class HoloGlobal {
     }
     
     startVideo() {
-        navigator.mediaDevices.getUserMedia({video: true, audio: true}).then((stream) => {this.video.srcObject = stream}, (err) => console.error(err))
+        navigator.mediaDevices.getUserMedia({video: true, audio: false}).then((stream) => {this.video.srcObject = stream}, (err) => console.error(err))
     }
 
     async loadModels() {
