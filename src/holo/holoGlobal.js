@@ -53,6 +53,7 @@ class HoloGlobal {
     }
 
     startInterval() {
+        console.log('started')
         if (this.interval_started) return
         
         setInterval(async () => {
