@@ -61,4 +61,21 @@ touch script.js
 ```
 import './holo.min.js'
 ```
-8. Add the "holo" class name to the elements that you want the have Holo effect on
+8. Add the "holo" class name to the elements that you want to have the Holo effect on
+
+## Holo settings:
+To update settings, after the "import './holo.min.js' " line in your script.js file, modify the attributes in "holo.global.settings".
+Example: 
+```
+holo.global.settings.lighten_amp = .7
+```
+### List of all Settings:
+| Setting | Default | Description |
+| --- | --- | --- |
+| gradient_to_light | .2 | Radial gradient amplification relative to the Light source |
+| shadow_to_face | .08 | Shadow amplification relative to your Face |
+| shadow_to_light | .08 | Shadow amplification relative to the Light source |
+| light_x | 420 | Light source x coordinate |
+| light_y | 0 | Light source y coordinate |
+| lighten_amp | .45 | Radial gradient brightness compared to its default color |
+| interval_value | 100 | The delay of [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval). A lower number means a faster refresh rate and will cause a smoother experience if the device is able to handle the increase in calculations. |

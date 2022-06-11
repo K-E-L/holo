@@ -11,7 +11,7 @@ class HoloGlobal {
         this.displaySize = { width: window.innerWidth, height: window.innerHeight }
         this.interval_started = false
         if (this.isMobileDevice()) {
-            this.settings.interval_value = 50
+            this.settings.interval_value = 100
         }
         this.interval_value = this.settings.interval_value
 

@@ -10,6 +10,6 @@ export default class Settings {
         this.light_x = 420
         this.light_y = 0
         this.lighten_amp = .45
-        this.interval_value = 100
+        this.interval_value = 50
     }
 }
