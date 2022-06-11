@@ -8,7 +8,10 @@ Introducing Holo, a next-gen facial recognition method of styling front-end elem
 ```
 npm install holo-project
 ```
-
+## Clone the Repository:
+```
+git clone https://github.com/K-E-L/holo.git
+```
 ## How to run the example site:
 1. Create a directory called "demo" and enter it
 ```
@@ -31,7 +34,7 @@ cd node_modules/holo-project/example_site
 live-server
 ```
 
-## How to use Holo in your own project
+## How to use Holo in your own project:
 1. Install the Holo project via NPM
 ```
 npm install holo-project
