@@ -1,6 +1,6 @@
 {
     "name": "holo-project",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "This project has been created using **webpack-cli**, you can now run",
     "main": "holo/holoGlobal.js",
     "scripts": {
