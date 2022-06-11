@@ -63,13 +63,11 @@ import './holo.min.js'
 ```
 8. Add the "holo" class name to the elements that you want to have the Holo effect on
 
-## Holo settings:
-To update settings, after the "import './holo.min.js' " line in your script.js file, modify the attributes in "holo.global.settings".
-Example: 
+## How to update the Settings:
+After the "import './holo.min.js' " line in your script.js file, modify the attributes in "holo.global.settings". Such as...
 ```
 holo.global.settings.lighten_amp = .7
 ```
-### List of all Settings:
 | Setting | Default | Description |
 | --- | --- | --- |
 | gradient_to_light | .2 | Radial gradient amplification relative to the Light source |
