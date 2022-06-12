@@ -76,4 +76,4 @@ holo.global.settings.lighten_amp = .7
 | light_x | 420 | Light source x coordinate |
 | light_y | 0 | Light source y coordinate |
 | lighten_amp | .45 | Radial gradient brightness compared to its default color |
-| interval_value | 100 | The delay of [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval). A lower number means a faster refresh rate and will cause a smoother experience if the device is able to handle the increase in calculations. |
+| interval_value | 50 | The delay of [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval). A lower number means a faster refresh rate and will cause a smoother experience if the device is able to handle the increase in calculations. |
